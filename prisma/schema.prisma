@@ -1,0 +1,27 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Films {
+  id                       String @id @db.Char(36)
+  title                    String @db.VarChar(31)
+  original_title           String @db.VarChar(15)
+  original_title_romanised String @db.VarChar(35)
+  image                    String @db.VarChar(83)
+  movie_banner             String @db.VarChar(50)
+  description              String @db.VarChar(50)
+  director                 String @db.VarChar(50)
+  producer                 String @db.VarChar(50)
+  release_date             Int
+  running_time             Int
+  rt_score                 Int
+  url                      String @db.VarChar(75)
+}
